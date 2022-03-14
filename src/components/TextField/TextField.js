@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { ContainerField, Input, Label, Span } from './style';
+import { ContainerField, Input, Label, Span, TextArea } from './style';
 
-export const TextFiled = ({placeholder, label, required}) => {
+export const TextFiled = ({type, placeholder, label, required}) => {
     const [value, setValue] = useState('');
 
     return (
@@ -11,6 +11,8 @@ export const TextFiled = ({placeholder, label, required}) => {
                 : <Label htmlFor="text">{label}</Label>
             }
             
+            {type === "text"
+            ?
             <Input
                 value={value}
                 onChange={(v)=>setValue(v.target.value)}
@@ -20,6 +22,17 @@ export const TextFiled = ({placeholder, label, required}) => {
                 type="text"
                 placeholder={placeholder}
             />
+            :
+            <TextArea
+                value={value}
+                onChange={(v)=>setValue(v.target.value)}
+                required={required}
+                id="text"
+                name={label}
+                type={type}
+                placeholder={placeholder}
+            />
+            }
         </ContainerField>
     )
 }

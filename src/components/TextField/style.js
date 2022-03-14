@@ -22,3 +22,13 @@ export const Input = styled.input`
     margin-top: 5px;
     outline: none;
 `;
+
+export const TextArea = styled.textarea`
+    width: 330px;
+    height: 90px;
+    border: 1px solid #F7FFD7;
+    border-radius: 8px;
+    padding: 0 10px;
+    margin-top: 5px;
+    outline: none;
+`;
