@@ -9,5 +9,6 @@ export const ContainerForm = styled.div`
 `;
 export const Title = styled.h2`
     color: #72DAA8;
+    margin-bottom: 40px;
     font-family: Roboto;
 `;
