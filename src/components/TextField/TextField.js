@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ContainerField, Input, Label, Span, TextArea } from './style';
 
-export const TextFiled = ({onChangeValue, type, placeholder, label, required}) => {
+export const TextField = ({onChangeValue, type, placeholder, label, required}) => {
     const [value, setValue] = useState('');
 
     useEffect(()=>{
