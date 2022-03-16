@@ -17,12 +17,13 @@ export const Span = styled.span`
 export const Input = styled.input`
     width: 330px;
     height: 40px;
-    border: 1px solid #72DAA8;
+    border: 1px solid #F7FFD7;
     border-radius: 8px;
     padding: 0 10px;
     margin-top: 5px;
     outline: none;
     margin-bottom: 30px;
+    background-color: #0E1410;
 `;
 
 export const TextArea = styled.textarea`
@@ -33,5 +34,6 @@ export const TextArea = styled.textarea`
     padding: 0 10px;
     margin-top: 5px;
     outline: none;
+    background-color: #0E1410;
     margin-bottom: 30px;
 `;

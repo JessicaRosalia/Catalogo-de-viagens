@@ -8,7 +8,7 @@ export const ContainerForm = styled.div`
     border-radius: 8px;
 `;
 export const Title = styled.h2`
-    color: #72DAA8;
+    color: #51C98F;
     margin-bottom: 40px;
-    font-family: Roboto;
+    font-family: 'Roboto';
 `;
