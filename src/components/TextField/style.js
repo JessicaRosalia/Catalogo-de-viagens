@@ -21,6 +21,7 @@ export const Input = styled.input`
     padding: 0 10px;
     margin-top: 5px;
     outline: none;
+    margin-bottom: 30px;
 `;
 
 export const TextArea = styled.textarea`
@@ -31,4 +32,5 @@ export const TextArea = styled.textarea`
     padding: 0 10px;
     margin-top: 5px;
     outline: none;
+    margin-bottom: 30px;
 `;
