@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Button } from '../Button/Button';
 import { TextField } from '../TextField/TextField';
 import { postDestino } from '../../services';
-import { ContainerForm, Merda, Title } from './style';
+import { BackgroundStyled, ContainerForm, Merda, Title } from './style';
+import imagemBackground from '../../assets/images/backgroundFon.jpg';
 
 export const Form = () => {
     const [destinationList, setDestinationList] = useState([]);
@@ -23,6 +24,9 @@ export const Form = () => {
       await postDestino(destino_param).then(()=> console.log("sucesso")).catch(()=>console.log("falha"));
     }
     return (
+      <>
+        <BackgroundStyled/>
+
         <ContainerForm>
             <Title>Cadastre um destino</Title>
             <form>
@@ -33,5 +37,6 @@ export const Form = () => {
                 <Button text="Enviar" onClick={(e) => saveDestination(e)}/>
             </form>
         </ContainerForm>
+      </>
     )
 }
