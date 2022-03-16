@@ -7,6 +7,7 @@ export const ContainerField = styled.div`
 export const Label = styled.label`
     color: #fff;
     font-size: 16px;
+    font-family: 'Roboto';
 `;
 
 export const Span = styled.span`
@@ -16,7 +17,7 @@ export const Span = styled.span`
 export const Input = styled.input`
     width: 330px;
     height: 40px;
-    border: 1px solid #F7FFD7;
+    border: 1px solid #72DAA8;
     border-radius: 8px;
     padding: 0 10px;
     margin-top: 5px;

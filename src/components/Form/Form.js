@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '../Button/Button';
 import { TextField } from '../TextField/TextField';
 import { postDestino } from '../../services';
-import { ContainerForm, Merda } from './style';
+import { ContainerForm, Merda, Title } from './style';
 
 export const Form = () => {
     const [destinationList, setDestinationList] = useState([]);
@@ -24,6 +24,7 @@ export const Form = () => {
     }
     return (
         <ContainerForm>
+            <Title>Cadastre um destino</Title>
             <form>
                 <TextField onChangeValue={setDestination} type="text" label="Nome do destino" placeholder="Informe aqui o nome do destino" required={true}/>
                 <TextField onChangeValue={setCountry} type="text" label="País" placeholder="Informe aqui o nome do país" required={true}/>
