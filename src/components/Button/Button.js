@@ -1,8 +1,11 @@
 import React from 'react';
-import { ButtonSubmit } from './style';
+import { ButtonSubmit, ButtonWrapper } from './style';
 
 export const Button = ({text, onClick}) => {
     return (        
-        <ButtonSubmit type="submit" value={text} onClick={onClick} />
+        <ButtonWrapper>
+            <ButtonSubmit type="submit" value={text} onClick={onClick} />
+        </ButtonWrapper>
+       
     )
 }

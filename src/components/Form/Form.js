@@ -3,7 +3,7 @@ import { Button } from '../Button/Button';
 import { TextField } from '../TextField/TextField';
 import { postDestino } from '../../services';
 import { BackgroundStyled, ContainerForm, Merda, Title } from './style';
-import imagemBackground from '../../assets/images/backgroundFon.jpg';
+import WarningDiv from '../WarningDiv';
 
 export const Form = () => {
     const [destinationList, setDestinationList] = useState([]);
@@ -11,6 +11,7 @@ export const Form = () => {
     const [country, setCountry] = useState('');
     const [description, setDescription] = useState('');
     const [clue, setClue] = useState('');
+    const [message, setMessage] = useState("");
   
     const destino_param = { 
       nomeDestino: destination,
@@ -20,19 +21,36 @@ export const Form = () => {
     }
   
     const saveDestination = async (e) => {
-      e.preventDefault();
-      await postDestino(destino_param).then(()=> console.log("sucesso")).catch(()=>console.log("falha"));
+      if(destino_param.nomeDestino && destino_param.pais && destino_param.descricao){
+        e.preventDefault();
+        setMessage("");
+        await postDestino(destino_param)
+        .then(()=> {
+        setMessage("Cadastro feito com sucesso!");
+      })
+        .catch(()=>{
+        setMessage("Falha no cadastro!");
+        console.log(message);
+      });
+      }
     }
     return (
       <>
+
         <BackgroundStyled/>
+
+        { message && (
+            <WarningDiv>
+              {message}
+            </WarningDiv>
+        )}     
 
         <ContainerForm>
             <Title>Cadastre um destino</Title>
             <form>
-                <TextField onChangeValue={setDestination} type="text" label="Nome do destino" placeholder="Informe aqui o nome do destino" required={true}/>
-                <TextField onChangeValue={setCountry} type="text" label="País" placeholder="Informe aqui o nome do país" required={true}/>
-                <TextField onChangeValue={setDescription} type="textarea" label="Descrição" placeholder="Informe aqui uma descrição a respeito do destino" required={true}/>
+                <TextField onChangeValue={setDestination} type="text" label="Nome do destino" placeholder="Informe aqui o nome do destino" required/>
+                <TextField onChangeValue={setCountry} type="text" label="País" placeholder="Informe aqui o nome do país" required/>
+                <TextField onChangeValue={setDescription} type="textarea" label="Descrição" placeholder="Informe aqui uma descrição a respeito do destino" required/>
                 <TextField onChangeValue={setClue} type="text" label="Dica" placeholder="Informe aqui uma dica" required={false}/>
                 <Button text="Enviar" onClick={(e) => saveDestination(e)}/>
             </form>
