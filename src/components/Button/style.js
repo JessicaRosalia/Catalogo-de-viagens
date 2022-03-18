@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
+export const ButtonWrapper = styled.div`
+    text-align: center;
+`
+
 export const ButtonSubmit = styled.input`
+    text-align: center;
     color: #fff;
     background-color: #51C98F;
     border-radius: 8px;
