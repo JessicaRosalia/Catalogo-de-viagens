@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '../Button/Button';
 import { TextField } from '../TextField/TextField';
 import { postDestino } from '../../services';
-import { BackgroundStyled, ContainerForm, Merda, Title } from './style';
+import { BackgroundStyled, ContainerForm, Title } from './style';
 import WarningDiv from '../WarningDiv';
 
 export const Form = () => {
@@ -30,7 +30,6 @@ export const Form = () => {
       })
         .catch(()=>{
         setMessage("Falha no cadastro!");
-        console.log(message);
       });
       }
     }
