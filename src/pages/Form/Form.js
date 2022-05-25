@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Button } from '../Button/Button';
-import { TextField } from '../TextField/TextField';
+import { Button } from '../../components/Button/Button';
+import { TextField } from '../../components/TextField/TextField';
 import { postDestino } from '../../services';
 import { BackgroundStyled, ContainerForm, Title } from './style';
-import WarningDiv from '../WarningDiv';
+import WarningDiv from '../../components/WarningDiv';
 
-export const Form = () => {
+const Form = () => {
     const [destinationList, setDestinationList] = useState([]);
     const [destination, setDestination] = useState('');
     const [country, setCountry] = useState('');
@@ -57,3 +57,5 @@ export const Form = () => {
       </>
     )
 }
+
+export default Form;

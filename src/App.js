@@ -1,10 +1,10 @@
 import React from 'react';
-import { Form } from './components/Form/Form';
+import Routes from './routes';
 
 function App() {
 
   return (
-      <Form />
+      <Routes/>
   );
 }
 
