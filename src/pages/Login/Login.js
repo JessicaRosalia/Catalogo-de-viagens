@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "../../components/Button/Button";
-import Seguranca from '../../assets/images/seg.png';
+import Seguranca from '../../assets/images/seguranca.png';
 import Logo from '../../assets/images/logo.png';
 import { ContainerInputStyled, ContainerStyled, DivisionLeftStyled, FormStyled, DivisionRightStyled } from "./style";
 
