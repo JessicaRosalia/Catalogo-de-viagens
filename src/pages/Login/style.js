@@ -3,13 +3,14 @@ import styled from 'styled-components';
 export const ContainerStyled = styled.div`
     display: flex;
     justify-content: space-between;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
 
     @media(max-width: 745px) {
         flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
     }
-    font-family: 'Roboto', sans-serif;
 `;
 
 export const DivisionLeftStyled = styled.div`
@@ -28,23 +29,24 @@ export const FormStyled = styled.div`
     align-items: center;
 
     header{
-        width: 300px;
-        div {
-            display: flex;
-            align-items: center;
+        width: 320px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-            @media(max-width: 750px){
-                flex-direction: column;
-            }
+        @media(max-width: 750px){
+            flex-direction: column;
+            text-align: center;
         }
 
-        h3 {
+        h4 {
+            width: 100%;
             margin-top: 15px;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
     
         .logo {
-            max-height: 90px;
+            height: 160px;
         }
 
     }
@@ -60,7 +62,7 @@ export const FormStyled = styled.div`
             background-color: #208dff;
             border-radius: 8px;
             border: none;
-            width: 300px;
+            width: 320px;
             height: 40px;
             font-size: 16px;
             cursor: pointer;
@@ -69,12 +71,13 @@ export const FormStyled = styled.div`
     }
     
     footer {
-        margin-top: 65px;
+        margin-top: 30px;
         font-size: 14px;
         width: 100%;
         text-align: justify;
         span:nth-child(3){
             color: #208dff;
+            font-weight: bold;
             cursor: pointer;
 
         }
@@ -95,7 +98,7 @@ export const ContainerInputStyled = styled.div`
     }
 
     .input {
-        width: 300px;
+        width: 320px;
         height: 40px;
         box-sizing: border-box;
         background-color: #fcfcfc;
@@ -117,11 +120,12 @@ export const DivisionRightStyled = styled.div`
     box-sizing: border-box;
     width: 50vw;
     background-color: #208dff;
-    padding: 2% 12%;
+    padding: 2% 8%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     .image {
         width: 350px;
 
@@ -134,6 +138,7 @@ export const DivisionRightStyled = styled.div`
         text-align: center;
 
         h4{
+            margin-top: 0px;
             font-size: 20px;
         }
     }
@@ -142,6 +147,7 @@ export const DivisionRightStyled = styled.div`
         display: flex;
         align-items: center;
         text-align: center;
+        margin-top: 20px;
 
         span::before{
             content: "";

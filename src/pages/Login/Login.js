@@ -19,13 +19,11 @@ export const Login = () => {
             <DivisionLeftStyled>
                 <FormStyled>
                     <header>
-                        <div>
                             <img className="logo" src={Logo} alt="logo do FlowTrip. Um ônibus, um hotel, um avião e uma mala" />
-                            <h1>Catálogo de viagens</h1>
-                        </div>
-                        <h3>É um prazer ter você de volta!<br></br>
+                            {/* <h1>Catálogo de viagens</h1> */}
+                        <h4>É um prazer ter você de volta!<br></br>
                         Você pode fazer login agora mesmo.
-                        </h3>
+                        </h4>
                     </header>
                     <form>
                         <ContainerInputStyled>
