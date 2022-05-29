@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const ContainerStyled = styled.div`
     display: flex;
     justify-content: space-between;
@@ -10,6 +9,7 @@ export const ContainerStyled = styled.div`
         justify-content: center;
         align-items: center;
     }
+    font-family: 'Roboto', sans-serif;
 `;
 
 export const DivisionLeftStyled = styled.div`
