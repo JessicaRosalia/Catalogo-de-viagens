@@ -2,7 +2,15 @@ import Menu from "../../components/Menu/Menu";
 
 function HomePage(){
     return(
-        <Menu/>
+        <>
+            <Menu/>
+
+            <input 
+                type="text"
+                placeholder="Pesquisa de Destinos"
+            />
+        </>
+        
     )
 }
 
