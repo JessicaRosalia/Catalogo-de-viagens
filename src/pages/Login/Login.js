@@ -20,7 +20,6 @@ export const Login = () => {
                 <FormStyled>
                     <header>
                             <img className="logo" src={Logo} alt="logo do FlowTrip. Um ônibus, um hotel, um avião e uma mala" />
-                            {/* <h1>Catálogo de viagens</h1> */}
                         <h4>É um prazer ter você de volta!<br></br>
                         Você pode fazer login agora mesmo.
                         </h4>
@@ -51,11 +50,8 @@ export const Login = () => {
                             />
                             <span>Esqueci minha senha</span>
                         </ContainerInputStyled>
-                        <input type="button" value="Entrar" className="btn-login" onClick={() => realizarLogin()} />
+                        <input type="submit" value="Entrar" className="btn-login" onClick={() => realizarLogin()} />
                     </form>
-                    <footer>
-                        <span>Não possuo cadastro. </span><br></br><span>Quero socilitar meu cadastro agora.</span>
-                    </footer>
                 </FormStyled>
             </DivisionLeftStyled>
             <DivisionRightStyled>
