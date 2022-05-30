@@ -52,9 +52,6 @@ export const Login = () => {
                         </ContainerInputStyled>
                         <input type="submit" value="Entrar" className="btn-login" onClick={() => realizarLogin()} />
                     </form>
-                    <footer>
-                        <span>Não possuo cadastro. </span><br></br><span>Quero socilitar meu cadastro agora.</span>
-                    </footer>
                 </FormStyled>
             </DivisionLeftStyled>
             <DivisionRightStyled>
