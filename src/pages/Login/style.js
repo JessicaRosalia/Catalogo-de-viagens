@@ -148,6 +148,10 @@ export const DivisionRightStyled = styled.div`
         align-items: center;
         text-align: center;
         margin-top: 20px;
+        
+        span:nth-child(1)::before {
+            background-color: #c6c6c6;
+        }
 
         span::before{
             content: "";
