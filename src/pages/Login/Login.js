@@ -51,7 +51,7 @@ export const Login = () => {
                             />
                             <span>Esqueci minha senha</span>
                         </ContainerInputStyled>
-                        <input type="button" value="Entrar" className="btn-login" onClick={() => realizarLogin()} />
+                        <input type="submit" value="Entrar" className="btn-login" onClick={() => realizarLogin()} />
                     </form>
                     <footer>
                         <span>Não possuo cadastro. </span><br></br><span>Quero socilitar meu cadastro agora.</span>
