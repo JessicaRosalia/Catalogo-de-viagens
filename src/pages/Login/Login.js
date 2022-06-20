@@ -3,14 +3,23 @@ import { Button } from "../../components/Button/Button";
 import Seguranca from '../../assets/images/seguranca.png';
 import Logo from '../../assets/images/logo.png';
 import { ContainerInputStyled, ContainerStyled, DivisionLeftStyled, FormStyled, DivisionRightStyled } from "./style";
+import { api } from "../../services/api";
 
 export const Login = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const realizarLogin = () => {
-        return;
+    const realizarLogin = (e) => {
+        e.preventDefault();
+        api.post("/login", {
+            login: email,
+            password: password
+        }).then((res) => {
+            window.location.href="/cadastro-de-destinos"
+        }).catch((erro) => {
+            alert("Usuário não encontrado.")
+        })
     }
 
     
@@ -50,7 +59,7 @@ export const Login = () => {
                             />
                             <span>Esqueci minha senha</span>
                         </ContainerInputStyled>
-                        <input type="submit" value="Entrar" className="btn-login" onClick={() => realizarLogin()} />
+                        <input type="submit" value="Entrar" className="btn-login" onClick={(e) => realizarLogin(e)} />
                     </form>
                 </FormStyled>
             </DivisionLeftStyled>
