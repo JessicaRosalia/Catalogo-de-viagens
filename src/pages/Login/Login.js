@@ -2,26 +2,35 @@ import React, { useEffect, useState } from "react";
 import { Button } from "../../components/Button/Button";
 import Seguranca from '../../assets/images/seguranca.png';
 import Logo from '../../assets/images/logo.png';
-import { ContainerInputStyled, ContainerStyled, DivisionLeftStyled, FormStyled, DivisionRightStyled } from "./style";
+import { ContainerInputStyled, ContainerStyled, DivisionLeftStyled, FormStyled, DivisionRightStyled, ErrorStyled } from "./style";
 import { api } from "../../services/api";
+import invalidUser from '../../assets/images/Group11.svg';
+import { login } from "../../services";
 
 export const Login = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [errorLogin, setErrorLogin] = useState(false);
+
+    useEffect(() => {
+        setErrorLogin(false);
+    }, [email, password]);
 
     const realizarLogin = (e) => {
         e.preventDefault();
-        api.post("/login", {
+        const user = {
             login: email,
             password: password
-        }).then((res) => {
-            window.location.href="/cadastro-de-destinos"
-        }).catch((erro) => {
-            alert("Usuário não encontrado.")
+        }
+        login(user).then((res)=> {
+            const token = res.headers.authorization;
+            localStorage.setItem('token', token);
+            window.location.href="/cadastro-de-destinos"    
+        }).catch(()=> {
+            setErrorLogin("Usuário não encontrado.");
         })
     }
-
     
     return (
         <ContainerStyled>
@@ -32,6 +41,7 @@ export const Login = () => {
                         <h4>É um prazer ter você de volta!<br></br>
                         Você pode fazer login agora mesmo.
                         </h4>
+                        <ErrorStyled>{errorLogin}</ErrorStyled>
                     </header>
                     <form>
                         <ContainerInputStyled>

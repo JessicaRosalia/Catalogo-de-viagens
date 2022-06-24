@@ -42,7 +42,7 @@ export const FormStyled = styled.div`
         h4 {
             width: 100%;
             margin-top: 15px;
-            margin-bottom: 40px;
+            margin-bottom: 10px;
         }
     
         .logo {
@@ -168,4 +168,27 @@ export const DivisionRightStyled = styled.div`
     @media(max-width: 745px) {
         display: none;
     }
+`;
+
+export const ErrorStyled = styled.div`
+    /* color: #fff;
+    position: absolute; */
+    /* top: 20vh; */
+    /* left: 200px; */
+    /* left: 30%;
+    z-index: 2;
+    width: max-content;
+    text-align: center;
+    line-height: 42px;
+    height: 42px;
+    padding: 5px 15px; */
+
+    
+    color: #f00;
+    visibility: visible;
+    width: max-content;
+    text-align: center;
+    line-height: 42px;
+    height: 42px;
+    padding: 5px 15px;
 `;
