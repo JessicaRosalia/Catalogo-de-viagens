@@ -14,7 +14,7 @@ function Routes (){
                 </Route>
 
                 <Route path="*">
-                    <Redirect to="/cadastro-de-destinos" />
+                    <Redirect to="/login" />
                 </Route>
             </Switch>
         </BrowserRouter>
