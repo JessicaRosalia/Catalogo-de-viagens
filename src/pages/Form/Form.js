@@ -47,10 +47,13 @@ const Form = () => {
         <ContainerForm>
             <Title>Cadastre um destino</Title>
             <form>
-                <TextField onChangeValue={setDestination} type="text" label="Nome do destino" placeholder="Informe aqui o nome do destino" required/>
-                <TextField onChangeValue={setCountry} type="text" label="País" placeholder="Informe aqui o nome do país" required/>
-                <TextField onChangeValue={setDescription} type="textarea" label="Descrição" placeholder="Informe aqui uma descrição a respeito do destino" required/>
-                <TextField onChangeValue={setClue} type="text" label="Dica" placeholder="Informe aqui uma dica" required={false}/>
+                <TextField onChangeValue={setDestination} type="text" label="Cidade" required/>
+                <TextField onChangeValue={setCountry} type="text" label="Estado" required/>
+                <TextField onChangeValue={setCountry} type="text" label="País" required/>
+                <TextField onChangeValue={setCountry} type="text" label="Continente" required/>
+                <TextField onChangeValue={setCountry} type="text" label="Resumo" required/>
+                <TextField onChangeValue={setDescription} type="textarea" label="Descrição complementar" placeholder="Informe aqui uma descrição a respeito do destino" required/>
+                <input type="file" required/>
                 <Button text="Enviar" onClick={(e) => saveDestination(e)}/>
             </form>
         </ContainerForm>

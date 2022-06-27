@@ -5,7 +5,7 @@ export const ContainerField = styled.div`
 `;
 
 export const Label = styled.label`
-    color: #fff;
+    color: #000;
     font-size: 16px;
     font-family: 'Roboto';
 `;
@@ -17,25 +17,25 @@ export const Span = styled.span`
 export const Input = styled.input`
     width: 330px;
     height: 40px;
-    border: 1px solid #F7FFD7;
+    border: 1px solid #208DFF;
     border-radius: 8px;
     padding: 0 10px;
     margin-top: 5px;
     outline: none;
     margin-bottom: 30px;
-    background-color: #0E1410;
-    color: #fff;
+    background-color: #fff;
+    color: #000;
 `;
 
 export const TextArea = styled.textarea`
     width: 330px;
     height: 90px;
-    border: 1px solid #F7FFD7;
+    border: 1px solid #208DFF;
     border-radius: 8px;
     padding: 0 10px;
     margin-top: 5px;
     outline: none;
-    background-color: #0E1410;
+    background-color: #fff;
     margin-bottom: 30px;
-    color: #fff;
+    color: #000;
 `;
