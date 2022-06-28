@@ -1,21 +1,17 @@
-import { LinkContainer, LinkStyled, NavbarStyled, LinksContainer, LogoStyled } from './style';
-import flowTripLogo from '../../assets/images/FlowTrip.png'
+import { LinkContainer, LinkStyled, NavbarStyled, LinksContainer} from './style';
 import { Link } from 'react-router-dom';
-
-
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faHouse} from '@fortawesome/free-solid-svg-icons'
 function Menu (){
 
     return(
         <NavbarStyled>
-
-            <Link to="/home">
-                <LogoStyled src={flowTripLogo}/>
-            </Link>
         
             <LinksContainer>
-            
                 <LinkContainer>
-                    <LinkStyled to="/home"> Home </LinkStyled>
+                    <LinkStyled to="/home">
+                        <FontAwesomeIcon icon={faHouse} className="fa-lg"/>
+                    </LinkStyled>
                 </LinkContainer>
                 
                 <LinkContainer>
