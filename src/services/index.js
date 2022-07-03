@@ -1,7 +1,10 @@
 import { api } from "./api";
 
 export async function postDestino(destino){
-    const response = await api.post('/formulario/destinos', destino, {
+    const response = await api.post('/destinos/cadastrar', destino, {
+        headers: {
+            authorization: localStorage.getItem('token')
+        }
     });
     return response.data;
 }

@@ -17,7 +17,7 @@ export const Span = styled.span`
 export const Input = styled.input`
     width: 330px;
     height: 40px;
-    border: 1px solid #208DFF;
+    border: 1px solid #c4c4c4;
     border-radius: 8px;
     padding: 0 10px;
     margin-top: 5px;
@@ -25,6 +25,10 @@ export const Input = styled.input`
     margin-bottom: 30px;
     background-color: #fff;
     color: #000;
+
+    &:focus {
+        border: 1px solid #208DFF;
+    }
 `;
 
 export const TextArea = styled.textarea`
