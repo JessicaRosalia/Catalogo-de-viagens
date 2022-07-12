@@ -4,6 +4,7 @@ import { TextField } from '../../components/TextField/TextField';
 import { postDestino } from '../../services';
 import { BackgroundStyled, ContainerFormStyled, MainStyled, FormStyled, HeaderStyled, TitleStyled, ContainerUploadFileStyled, ContainerFilesStyled, FileInputStyled, ContainerFileInputStyled, FileLabelStyled } from './style';
 import WarningDiv from '../../components/WarningDiv';
+import Footer from '../../components/Footer/Footer';
 
 const Form = () => {
     const [destinationList, setDestinationList] = useState([]);
@@ -82,6 +83,7 @@ const Form = () => {
               </FormStyled>
                 <Button text="Enviar" onClick={(e) => saveDestination(e)}/>
             </MainStyled>
+            <Footer />
         </ContainerFormStyled>
       </>
     )
