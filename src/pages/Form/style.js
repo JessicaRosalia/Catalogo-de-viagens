@@ -51,6 +51,33 @@ export const ContainerFilesStyled = styled.div`
     color: #208DFF;
     border: 1px dashed #208DFF;
     border-radius: 8px;
-    text-align: center;
     height: 200px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+
+    p {
+        font-size: 24px;
+    }
+`;
+
+export const ContainerFileInputStyled = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
+
+export const FileLabelStyled = styled.label`
+    border-radius: 8px;
+    background-color: #208DFF;
+    width: max-content;
+    padding: 10px 45px;
+    color: #FFF;
+    cursor: pointer;
+    margin-top: 20px;
+`;
+
+export const FileInputStyled = styled.input`
+    display: none;
 `;

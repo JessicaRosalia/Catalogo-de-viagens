@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '../../components/Button/Button';
 import { TextField } from '../../components/TextField/TextField';
 import { postDestino } from '../../services';
-import { BackgroundStyled, ContainerFormStyled, MainStyled, FormStyled, HeaderStyled, TitleStyled, ContainerUploadFileStyled, ContainerFilesStyled } from './style';
+import { BackgroundStyled, ContainerFormStyled, MainStyled, FormStyled, HeaderStyled, TitleStyled, ContainerUploadFileStyled, ContainerFilesStyled, FileInputStyled, ContainerFileInputStyled, FileLabelStyled } from './style';
 import WarningDiv from '../../components/WarningDiv';
 
 const Form = () => {
@@ -74,7 +74,10 @@ const Form = () => {
                   <p>Carregue suas fotos aqui</p>
                   <span>+</span>
                   </ContainerFilesStyled>
-                  <div><input type="file" required accept="image/png, image/jpeg"/></div>
+                  <ContainerFileInputStyled>
+                    <FileLabelStyled for="photos">Enviar foto</FileLabelStyled>
+                    <FileInputStyled name="photos" id="photos" type="file" required accept="image/png, image/jpeg"/>
+                    </ContainerFileInputStyled>
                 </ContainerUploadFileStyled>
               </FormStyled>
                 <Button text="Enviar" onClick={(e) => saveDestination(e)}/>
