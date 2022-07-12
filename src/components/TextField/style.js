@@ -34,7 +34,7 @@ export const Input = styled.input`
 export const TextArea = styled.textarea`
     width: 330px;
     height: 90px;
-    border: 1px solid #208DFF;
+    border: 1px solid #c4c4c4;
     border-radius: 8px;
     padding: 0 10px;
     margin-top: 5px;
@@ -42,4 +42,8 @@ export const TextArea = styled.textarea`
     background-color: #fff;
     margin-bottom: 30px;
     color: #000;
+
+    &:focus {
+        border: 1px solid #208DFF;
+    }
 `;
