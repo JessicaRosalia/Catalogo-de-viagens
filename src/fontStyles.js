@@ -7,6 +7,11 @@ const FontStyles = createGlobalStyle`
     font-family: 'Roboto';
     src: url(${RobotoBold}) format('ttf'),
   }
+
+  *, body{
+    margin: 0;
+    padding: 0;
+}
 `;
 
 export default FontStyles;
