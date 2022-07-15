@@ -1,73 +1,95 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '../../components/Button/Button';
 import { TextField } from '../../components/TextField/TextField';
 import { postDestino } from '../../services';
 import { BackgroundStyled, ContainerFormStyled, MainStyled, FormStyled, HeaderStyled, TitleStyled, ContainerUploadFileStyled, ContainerFilesStyled, FileInputStyled, ContainerFileInputStyled, FileLabelStyled } from './style';
 import WarningDiv from '../../components/WarningDiv';
 import Footer from '../../components/Footer/Footer';
+import Menu from '../../components/Menu/Menu';
 
 const Form = () => {
-    const [destinationList, setDestinationList] = useState([]);
-    const [destination, setDestination] = useState('');
-    const [city, setCity] = useState('');
-    const [state, setState] = useState('');
-    const [country, setCountry] = useState('');
-    const [continent, setContinent] = useState('');
-    const [description, setDescription] = useState('');
-    const [summary, setSummary] = useState('');
-    const [message, setMessage] = useState("");
-  
-    const destino_param = { 
-      nomeDestino: destination,
-      cidade: city,
-      estado: state,
-      pais: country,
-      continente: continent,
-      descricao: description,
-      resumo: summary,
-    }
-  
+  const [destinationList, setDestinationList] = useState([]);
+  const [warningMessage, setWarningMessage] = useState('');
+  const [emptyInputClass, setEmptyInputClass] = useState('');
+  const [destination, setDestination] = useState({
+    name: '',
+    city: '',
+    state: '', 
+    country: '',
+    continent:'',
+    description: '',
+    summary: '',
+  })
+
+  const changeDestination = (fieldName, value) => {
+    setDestination({
+      ...destination,
+      [fieldName]: value,
+    })
+  }
+
+  const fieldValidation = () => {
+    Object.keys(destination).forEach(information => {
+      if(!destination[information]) {
+        setEmptyInputClass('error');
+      }
+    })
+  }
+
+  const destino_param = { 
+    nomeDestino: destination.name,
+    cidade: destination.city,
+    estado: destination.state,
+    pais: destination.country,
+    continente: destination.continent,
+    descricao: destination.description,
+    resumo: destination.summary,
+  }
+    
     const saveDestination = async (e) => {
-      if(destino_param.nomeDestino && destino_param.pais && destino_param.descricao){
+
+      if(destino_param.nomeDestino && destino_param.cidade && destino_param.estado && destino_param.pais && destino_param.continente && destino_param.descricao && destino_param.resumo){
         e.preventDefault();
-        setMessage("");
+        setWarningMessage("");
         await postDestino(destino_param)
         .then(()=> {
-        setMessage("Cadastro realizado com sucesso!");
-      })
+          setWarningMessage("Cadastro realizado com sucesso!");
+        })
         .catch(()=>{
-        setMessage("Falha no cadastro. Tente novamente!");
-      });
+          setWarningMessage("Falha no cadastro. Tente novamente!");
+        });
+      }
+      else{
+        fieldValidation();
+        setWarningMessage("É necessário que você preencha todos os campos obrigatórios.");
       }
     }
 
     return (
       <>
 
-        {/* <BackgroundStyled/> */}
-
-        { message && (
+        { warningMessage && (
             <WarningDiv>
-              {message}
+              {warningMessage}
             </WarningDiv>
         )}     
 
         <ContainerFormStyled>
-          <HeaderStyled />
+            <Menu />
             <TitleStyled>Cadastre um destino</TitleStyled>
             <MainStyled>
               <FormStyled>
                 <div>
                   <div>
-                  <TextField onChangeValue={setDestination} type="text" label="Nome do destino" required/>
-                  <TextField onChangeValue={setCity} type="text" label="Cidade" required/>
-                  <TextField onChangeValue={setState} type="text" label="Estado" required/>
-                  <TextField onChangeValue={setCountry} type="text" label="País" required/>
+                  <TextField onChangeValue={changeDestination} fieldName='name' type="text" label="Nome do destino" required emptyInputClass={emptyInputClass} />
+                  <TextField onChangeValue={changeDestination} fieldName='city' type="text" label="Cidade" required emptyInputClass={emptyInputClass} />
+                  <TextField onChangeValue={changeDestination} fieldName='state' type="text" label="Estado" required emptyInputClass={emptyInputClass} />
+                  <TextField onChangeValue={changeDestination} fieldName='country' type="text" label="País" required emptyInputClass={emptyInputClass} />
                   </div>
                   <div>
-                  <TextField onChangeValue={setContinent} type="text" label="Continente" required/>
-                  <TextField onChangeValue={setSummary} type="text" label="Resumo" required/>
-                  <TextField onChangeValue={setDescription} type="textarea" label="Descrição complementar" placeholder="Informe aqui uma descrição a respeito do destino" required/>
+                  <TextField onChangeValue={changeDestination} fieldName='continent' type="text" label="Continente" required emptyInputClass={emptyInputClass} />
+                  <TextField onChangeValue={changeDestination} fieldName='summary' type="text" label="Resumo" required emptyInputClass={emptyInputClass} />
+                  <TextField onChangeValue={changeDestination} fieldName='description' type="textarea" label="Descrição complementar" placeholder="Informe aqui uma descrição a respeito do destino" required emptyInputClass={emptyInputClass} />
                   </div>
                 </div>
                 <ContainerUploadFileStyled>
@@ -76,12 +98,12 @@ const Form = () => {
                   <span>+</span>
                   </ContainerFilesStyled>
                   <ContainerFileInputStyled>
-                    <FileLabelStyled for="photos">Enviar foto</FileLabelStyled>
-                    <FileInputStyled name="photos" id="photos" type="file" required accept="image/png, image/jpeg"/>
+                    <FileLabelStyled htmlFor="photos">Enviar foto</FileLabelStyled>
+                    <FileInputStyled name="photos" id="photos" type="file" accept="image/png, image/jpeg"/>
                     </ContainerFileInputStyled>
                 </ContainerUploadFileStyled>
-              </FormStyled>
                 <Button text="Enviar" onClick={(e) => saveDestination(e)}/>
+              </FormStyled>
             </MainStyled>
             <Footer />
         </ContainerFormStyled>

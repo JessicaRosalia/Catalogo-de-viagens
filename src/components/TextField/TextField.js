@@ -1,13 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ContainerField, Input, Label, Span, TextArea } from './style';
 
-export const TextField = ({onChangeValue, type, placeholder, label, required}) => {
-    const [value, setValue] = useState('');
-
-    useEffect(()=>{
-        onChangeValue(value);
-    },[value]);
-
+export const TextField = ({onChangeValue, fieldName, type, placeholder, label, required, emptyInputClass}) => {
     return (
         <ContainerField>
             {required
@@ -18,18 +12,17 @@ export const TextField = ({onChangeValue, type, placeholder, label, required}) =
             {type === "text"
             ?
             <Input
-                value={value}
-                onChange={(v)=>setValue(v.target.value)}
+                onChange={(event) => onChangeValue(fieldName, event.target.value)}
                 required={required}
                 id="text"
                 name={label}
                 type="text"
                 placeholder={placeholder}
+                className={emptyInputClass || ''}
             />
             :
             <TextArea
-                value={value}
-                onChange={(v)=>setValue(v.target.value)}
+                onChange={(event) => onChangeValue(fieldName, event.target.value)}
                 required={required}
                 id="text"
                 name={label}

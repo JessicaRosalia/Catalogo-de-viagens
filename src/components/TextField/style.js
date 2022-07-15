@@ -29,6 +29,10 @@ export const Input = styled.input`
     &:focus {
         border: 1px solid #208DFF;
     }
+
+    &.error {
+        border-color: red;
+    }
 `;
 
 export const TextArea = styled.textarea`
