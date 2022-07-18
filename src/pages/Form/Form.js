@@ -9,68 +9,115 @@ import Menu from '../../components/Menu/Menu';
 
 const Form = () => {
   const [destinationList, setDestinationList] = useState([]);
-  const [warningMessage, setWarningMessage] = useState('');
-  const [emptyInputClass, setEmptyInputClass] = useState('');
-  const [destination, setDestination] = useState({
-    name: '',
-    city: '',
-    state: '', 
-    country: '',
-    continent:'',
-    description: '',
-    summary: '',
-  })
+  const [warningMessage, setWarningMessage] = useState({
+    type: 'default',
+    message: ''
+  });
+  const [destination, setDestination] = useState(
+    {
+      name: {
+        value: '',
+        inputClass: ''
+      },
+      city: {
+        value: '',
+        inputClass: ''
+      },
+      state: {
+        value: '', 
+        inputClass: ''
+      },
+      country:{
+        value: '',
+        inputClass: ''
+      },
+      continent: {
+        value:'',
+        inputClass: ''
+      },
+      description: {
+        value: '',
+        inputClass: ''
+      },
+      summary: {
+        value: '',
+        inputClass: ''
+      }
+    }
+  )
 
-  const changeDestination = (fieldName, value) => {
+  const changeDestination = (fieldName, fieldValue) => {
     setDestination({
       ...destination,
-      [fieldName]: value,
+      [fieldName]: {
+        value: fieldValue,
+        inputClass: ''
+      }
     })
   }
 
   const fieldValidation = () => {
-    Object.keys(destination).forEach(information => {
-      if(!destination[information]) {
-        setEmptyInputClass('error');
-      }
+    let aux;
+    Object.keys(destination).forEach(information => {  
+        aux = {
+          ...aux,
+          [information]: {
+            ...destination[information],
+            inputClass: !destination[information].value ? 'error' : ''
+        }
+      } 
     })
+
+    setDestination(aux)
   }
 
   const destino_param = { 
-    nomeDestino: destination.name,
-    cidade: destination.city,
-    estado: destination.state,
-    pais: destination.country,
-    continente: destination.continent,
-    descricao: destination.description,
-    resumo: destination.summary,
+    nomeDestino: destination.name.value,
+    cidade: destination.city.value,
+    estado: destination.state.value,
+    pais: destination.country.value,
+    continente: destination.continent.value,
+    descricao: destination.description.value,
+    resumo: destination.summary.value,
   }
     
     const saveDestination = async (e) => {
-
+      
       if(destino_param.nomeDestino && destino_param.cidade && destino_param.estado && destino_param.pais && destino_param.continente && destino_param.descricao && destino_param.resumo){
         e.preventDefault();
-        setWarningMessage("");
+        setWarningMessage({
+          type: 'default',
+          message: '',
+        });
         await postDestino(destino_param)
         .then(()=> {
-          setWarningMessage("Cadastro realizado com sucesso!");
+          setWarningMessage({
+            type: 'success',
+            message: 'Cadastro realizado com sucesso!',
+          });
         })
         .catch(()=>{
-          setWarningMessage("Falha no cadastro. Tente novamente!");
+          setWarningMessage({
+            type: 'error',
+            message: 'Falha no cadastro. Tente novamente!',
+          });
         });
       }
       else{
         fieldValidation();
-        setWarningMessage("É necessário que você preencha todos os campos obrigatórios.");
+        setWarningMessage({
+          type: 'error',
+          message: 'É necessário que você preencha todos os campos obrigatórios.',
+        });
       }
     }
 
     return (
       <>
 
-        { warningMessage && (
-            <WarningDiv>
-              {warningMessage}
+        { warningMessage.message && (
+            <WarningDiv type={warningMessage.type}>
+              {warningMessage.message}
             </WarningDiv>
         )}     
 
@@ -81,15 +128,15 @@ const Form = () => {
               <FormStyled>
                 <div>
                   <div>
-                  <TextField onChangeValue={changeDestination} fieldName='name' type="text" label="Nome do destino" required emptyInputClass={emptyInputClass} />
-                  <TextField onChangeValue={changeDestination} fieldName='city' type="text" label="Cidade" required emptyInputClass={emptyInputClass} />
-                  <TextField onChangeValue={changeDestination} fieldName='state' type="text" label="Estado" required emptyInputClass={emptyInputClass} />
-                  <TextField onChangeValue={changeDestination} fieldName='country' type="text" label="País" required emptyInputClass={emptyInputClass} />
+                  <TextField onChangeValue={changeDestination} fieldName='name' type="text" label="Nome do destino" required emptyInputClass={destination.name.inputClass} />
+                  <TextField onChangeValue={changeDestination} fieldName='city' type="text" label="Cidade" required emptyInputClass={destination.city.inputClass} />
+                  <TextField onChangeValue={changeDestination} fieldName='state' type="text" label="Estado" required emptyInputClass={destination.state.inputClass} />
+                  <TextField onChangeValue={changeDestination} fieldName='country' type="text" label="País" required emptyInputClass={destination.country.inputClass} />
                   </div>
                   <div>
-                  <TextField onChangeValue={changeDestination} fieldName='continent' type="text" label="Continente" required emptyInputClass={emptyInputClass} />
-                  <TextField onChangeValue={changeDestination} fieldName='summary' type="text" label="Resumo" required emptyInputClass={emptyInputClass} />
-                  <TextField onChangeValue={changeDestination} fieldName='description' type="textarea" label="Descrição complementar" placeholder="Informe aqui uma descrição a respeito do destino" required emptyInputClass={emptyInputClass} />
+                  <TextField onChangeValue={changeDestination} fieldName='continent' type="text" label="Continente" required emptyInputClass={destination.continent.inputClass} />
+                  <TextField onChangeValue={changeDestination} fieldName='summary' type="text" label="Resumo" required emptyInputClass={destination.summary.inputClass} />
+                  <TextField onChangeValue={changeDestination} fieldName='description' type="textarea" label="Descrição complementar" placeholder="Informe aqui uma descrição a respeito do destino" required emptyInputClass={destination.description.inputClass} />
                   </div>
                 </div>
                 <ContainerUploadFileStyled>

@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 
 export const WrapperStyled = styled.div`
     text-align: center;
-    margin: 0 auto 0 auto
+    margin: 0 auto 0 auto;
     position: absolute;
     `
 
@@ -27,8 +27,9 @@ export const GoDownAnimation = keyframes`
 
 `
 
+
 export const WarningStyled = styled.div`
-    color: #fff;
+    color: ${props => props.className === 'error' ? '#000' : 'green'};
     background-color: #d9534f;
     display: inline-block;
     animation: ${GoDownAnimation} 0.5s both 1, ${FadeOutAnimation} 5s both 2s 1;

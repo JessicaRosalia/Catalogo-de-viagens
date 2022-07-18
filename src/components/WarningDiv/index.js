@@ -1,12 +1,12 @@
 import React from "react";
 import {WarningStyled, WrapperStyled} from "./style"
 
-function WarningDiv(aviso){
+function WarningDiv({children, type}){
    
     return(
         <WrapperStyled>
-          <WarningStyled>
-              {aviso.children}
+          <WarningStyled className={type}>
+              {children}
           </WarningStyled>
         </WrapperStyled>   
     )
