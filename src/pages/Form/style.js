@@ -30,6 +30,8 @@ export const MainStyled = styled.main`
 
 export const FormStyled = styled.form`
     display: flex;
+    margin: 0 auto;
+    flex-direction: column;
     /* justify-content: space-between; */
 
     & > :nth-child(1){
@@ -41,9 +43,23 @@ export const FormStyled = styled.form`
             margin-right: 20px;
         }
     }
+/* 
+    @media(min-width: 1440px){
+        flex-direction: row;
+        
+    } */
+`;
+
+export const InputContainerStyled = styled.div`
+
+`;
+
+export const LabelStyled = styled.div`
+
 `;
 
 export const ContainerUploadFileStyled = styled.div`
+    max-width: 500px;
     width: 100%;
 `;
 

@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
 export const ContainerField = styled.div`
+    /* width: 330px; */
     width: 330px;
+
+    @media(min-width: 1440px){
+        width: 500px;
+    }
 `;
 
 export const Label = styled.label`
@@ -25,6 +30,10 @@ export const Input = styled.input`
     margin-bottom: 30px;
     background-color: #fff;
     color: #000;
+
+    @media(min-width: 1440px){
+        width: 500px;
+    }
 
     &:focus {
         border: 1px solid #208DFF;
