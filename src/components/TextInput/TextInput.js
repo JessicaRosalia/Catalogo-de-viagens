@@ -5,8 +5,8 @@ export const TextInput = ({onChangeValue, fieldName, type, placeholder, label, r
     return (
         <ContainerField>
             {required
-                ? <Label htmlFor="text">{label} <Span>*</Span> </Label>
-                : <Label htmlFor="text">{label}</Label>
+                ? <Label htmlFor={fieldName}>{label} <Span>*</Span> </Label>
+                : <Label htmlFor={fieldName}>{label}</Label>
             }
             
             {type === "text"
@@ -14,8 +14,8 @@ export const TextInput = ({onChangeValue, fieldName, type, placeholder, label, r
             <Input
                 onChange={(event) => onChangeValue(fieldName, event.target.value)}
                 required={required}
-                id="text"
-                name={label}
+                id={fieldName}
+                name={fieldName}
                 type="text"
                 placeholder={placeholder}
                 className={emptyInputClass || ''}
@@ -24,8 +24,8 @@ export const TextInput = ({onChangeValue, fieldName, type, placeholder, label, r
             <TextArea
                 onChange={(event) => onChangeValue(fieldName, event.target.value)}
                 required={required}
-                id="text"
-                name={label}
+                id={fieldName}
+                name={fieldName}
                 type={type}
                 placeholder={placeholder}
                 className={emptyInputClass || ''}

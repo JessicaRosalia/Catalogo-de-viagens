@@ -3,10 +3,7 @@ import imagemBackground from '../../assets/images/backgroundFon.jpg'
 
 export const ContainerFormStyled = styled.div`
     background-color: #FFF;
-    /* width: 350px;
-    height: 75%;
-    padding: 30px 70px;
-    border-radius: 8px; */
+    padding: 40px 55px;
 `;
 
 export const HeaderStyled = styled.header`
@@ -16,16 +13,15 @@ export const HeaderStyled = styled.header`
 `;
 
 export const TitleStyled = styled.h2`
-    text-align: center;
-    color: #51C98F;
-    /* margin-bottom: 40px; */
+    text-align: justify;
+    color: #000;
     margin-top: 50px;
+    margin-bottom: 50px;
     font-family: 'Roboto';
 `;
 
 export const MainStyled = styled.main`
-    /* background-color: red; */
-    padding: 40px 55px;
+    
 `;
 
 export const FormStyled = styled.form`

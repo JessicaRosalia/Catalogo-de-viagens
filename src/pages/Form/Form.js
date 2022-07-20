@@ -152,8 +152,8 @@ const Form = () => {
                 <Button text="Enviar" onClick={(e) => saveDestination(e)}/>
               </FormStyled>
             </MainStyled>
-            <Footer />
         </ContainerFormStyled>
+        <Footer />
       </>
     )
 }
