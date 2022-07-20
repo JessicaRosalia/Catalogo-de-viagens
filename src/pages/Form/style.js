@@ -68,10 +68,6 @@ export const ContainerFilesStyled = styled.div`
     flex-direction: column; 
     align-items: center;
     justify-content: center;
-
-    p {
-        font-size: 24px;
-    }
 `;
 
 export const ContainerFileInputStyled = styled.div`
@@ -88,6 +84,16 @@ export const FileLabelStyled = styled.label`
     color: #FFF;
     cursor: pointer;
     margin-top: 20px;
+
+    &.s{
+        all: unset;
+        cursor: pointer;
+        font-size: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 `;
 
 export const FileInputStyled = styled.input`

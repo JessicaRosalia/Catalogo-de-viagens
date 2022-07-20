@@ -141,8 +141,7 @@ const Form = () => {
                 </div>
                 <ContainerUploadFileStyled>
                   <ContainerFilesStyled>
-                  <p>Carregue suas fotos aqui</p>
-                  <span>+</span>
+                      <FileLabelStyled htmlFor="photos" className="s">Carregue suas fotos aqui<span>+</span></FileLabelStyled>
                   </ContainerFilesStyled>
                   <ContainerFileInputStyled>
                     <FileLabelStyled htmlFor="photos">Enviar foto</FileLabelStyled>
