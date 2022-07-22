@@ -11,6 +11,7 @@ export const Card = styled.div`
     align-items: center;
     justify-content: center;
     padding: 10px;
+    flex-wrap: nowrap;
 `
 export const DestinationCardContent = styled.div`
     display: flex;

@@ -18,7 +18,7 @@ function Footer (){
                     Contato
                 </FooterItemStyled>
             
-                <FooterItemStyled>
+                <FooterItemStyled className="centralize">
                     Saiba Mais
                 </FooterItemStyled>
             </FooterRow>
