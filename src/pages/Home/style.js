@@ -1,28 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+    font-family: 'Montserrat', sans-serif;
     position: relative;
     display: flex;
     flex-direction: column;
 `
-export const LogoStyled = styled.img`
-    position: relative;
-    left: auto;
-    bottom: 430px;
-    left: 500px;
-    z-index: 1;
-    width: 400px;
-    height:400px;
-    box-sizing: border-box;
-`
-export const BackgroundLogoStyled = styled.img`
-    width: 100%;
-    height: 453px;
-    z-index: 0;
-`
 export const ContainerInput = styled.div`
-    position: relative;
-    bottom: 400px;
     margin-top: 50px;
     margin-left: 75vw;
 `
@@ -51,21 +35,17 @@ export const ButtonStyled = styled.button`
     border-radius: 6px;
     width: 80px;
     height: 35px;
+    color: #fff;
 `
-
 export const CardContainer = styled.div`
-    position: relative;
-    bottom: 400px;
     display: flex;
-    justify-content: space-between;
+    gap: 97px;
     margin-right: 70px;
     margin-left: 70px;
-
+    flex-wrap: wrap;
 `
-
 export const H1Styled = styled.h1`
-    position: relative;
-    bottom: 400px;
     margin-left: 70px;
     font-size: 55px;
 `
+

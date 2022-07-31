@@ -2,8 +2,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const NavbarStyled = styled.nav`
-    position: relative;
-    bottom: 400px;
     display: flex;
     background-color: #1E90FF;
     padding: 1em;

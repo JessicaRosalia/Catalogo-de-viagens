@@ -1,17 +1,24 @@
-import Menu from "../../components/Menu/Menu";
-import { ButtonStyled, Container, ContainerInput, BackgroundLogoStyled, InputStyled, LogoStyled, CardContainer, H1Styled, DestinationCardContent } from "./style";
-import BackgroundLogo from '../../assets/images/porDoSol.jpg';
+import { 
+    ButtonStyled, 
+    Container, 
+    ContainerInput, 
+    InputStyled, 
+    CardContainer, 
+    H1Styled} from "./style";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
-import Logo from '../../assets/images/FlowTrip.png';
+import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import axios from 'axios';
 import { useEffect, useState} from "react";
 import DestinationCard from "../../components/DestinationCard/DestinationCard";
+import NoneResultFound from "../NoneFound/NoneFound";
 
 function HomePage(){
 
     const [todosDestinos, setTodosDestinos] = useState([]);
+    const [destinosPesquisados, setDestinosPesquisados] = useState([]);
+    const [palavraPesquisada, setPalavraPesquisada] = useState("");
 
     async function listaDestinos() {
 
@@ -35,20 +42,37 @@ function HomePage(){
     }, []);
 
     useEffect(()=>{
-        console.log(todosDestinos);
-    }, [todosDestinos]);
+        console.log(palavraPesquisada);
+    }, [palavraPesquisada]);
+
+    function pesquisarDestinos(dadosParaPesquisa) {
+        let fon;
+        if(dadosParaPesquisa ===""){
+            setDestinosPesquisados([]);
+        }
+        else{
+            fon = todosDestinos.filter((destino) => {
+                if(destino.nomeDestino.includes(dadosParaPesquisa) || destino.pais.includes(dadosParaPesquisa)){
+                    return destino;
+                }
+            })
+            setDestinosPesquisados(fon);
+        }
+    }
     
     return(
         <>
-        <Container>
-           <BackgroundLogoStyled src={BackgroundLogo}/>
-           <LogoStyled src={Logo}/>
-            <Menu/>
+        <Header/>
 
+        <Container>
             <ContainerInput>
                 <InputStyled
                     type="text"
                     placeholder="Pesquisa de Destinos"
+                    onChange={(evento) => {
+                        pesquisarDestinos(evento.target.value);
+                        setPalavraPesquisada(evento.target.value);
+                    }}
                 />
 
                 <FontAwesomeIcon icon={faMagnifyingGlass}/>
@@ -57,20 +81,33 @@ function HomePage(){
                     Buscar
                 </ButtonStyled>
             </ContainerInput>
-
-            <H1Styled> Últimos Cadastrados </H1Styled>
             
-            <CardContainer>
-                {todosDestinos?.map( destino => {
-                    return (
-                        <DestinationCard key={destino.id}>
-                            {destino.nomeDestino}
-                            {destino.pais}
-                        </DestinationCard>
-                    )
-                })}
-            </CardContainer>
-
+            {(todosDestinos?.length && palavraPesquisada==="") ? <>
+                <H1Styled> Últimos Cadastrados </H1Styled> 
+                    <CardContainer>
+                        {todosDestinos?.map( destino => {
+                            return (
+                                <DestinationCard key={destino.id}>
+                                    {destino.nomeDestino}
+                                    {destino.pais}
+                                </DestinationCard>
+                            )
+                        })}
+                    </CardContainer>
+                
+            </> : (destinosPesquisados?.length && palavraPesquisada!=="") ? <>
+                <H1Styled> Últimos Cadastrados </H1Styled> 
+                    <CardContainer>
+                        {destinosPesquisados?.map( destino => {
+                            return (
+                                <DestinationCard key={destino.id}>
+                                    {destino.nomeDestino}
+                                    {destino.pais}
+                                </DestinationCard>
+                            )
+                        })}
+                    </CardContainer>
+            </> : <NoneResultFound/>}
         </Container>
 
         <Footer/>
