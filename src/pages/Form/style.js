@@ -77,7 +77,14 @@ export const ContainerFileInputStyled = styled.div`
 `;
 
 export const FileLabelStyled = styled.label`
-    border-radius: 8px;
+    margin-bottom: 10px;
+    display: inline-block;
+
+    span {
+        margin-left: 5px;
+        color: #f00;
+    }
+    /* border-radius: 8px;
     background-color: #208DFF;
     width: max-content;
     padding: 10px 45px;
@@ -88,14 +95,11 @@ export const FileLabelStyled = styled.label`
     &.s{
         all: unset;
         cursor: pointer;
-        font-size: 24px;
+        font-size: 20px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-    }
+    } */
 `;
 
-export const FileInputStyled = styled.input`
-    display: none;
-`;

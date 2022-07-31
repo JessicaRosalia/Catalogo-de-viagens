@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from '../../components/Button/Button';
 import { TextInput } from '../../components/TextInput/TextInput';
 import { postDestino } from '../../services';
-import { BackgroundStyled, ContainerFormStyled, MainStyled, FormStyled, HeaderStyled, TitleStyled, ContainerUploadFileStyled, ContainerFilesStyled, FileInputStyled, ContainerFileInputStyled, FileLabelStyled, LabelStyled, InputContainerStyled } from './style';
+import { BackgroundStyled, ContainerFormStyled, MainStyled, FormStyled, HeaderStyled, TitleStyled, ContainerUploadFileStyled, FileLabelStyled } from './style';
 import WarningDiv from '../../components/WarningDiv';
 import Footer from '../../components/Footer/Footer';
 import Menu from '../../components/Menu/Menu';
@@ -140,13 +140,8 @@ const Form = () => {
                   </div>
                 </div>
                 <ContainerUploadFileStyled>
-                  <ContainerFilesStyled>
-                      <FileLabelStyled htmlFor="photos" className="s">Carregue suas fotos aqui<span>+</span></FileLabelStyled>
-                  </ContainerFilesStyled>
-                  <ContainerFileInputStyled>
-                    <FileLabelStyled htmlFor="photos">Enviar foto</FileLabelStyled>
-                    <FileInputStyled name="photos" id="photos" type="file" accept="image/png, image/jpeg"/>
-                    </ContainerFileInputStyled>
+                  <FileLabelStyled htmlFor="photos">Selecione uma foto para ser a capa<span>*</span></FileLabelStyled>
+                  <input name="photo" id="photos" type="file" accept="image/png, image/jpeg" />
                 </ContainerUploadFileStyled>
                 <Button text="Enviar" onClick={(e) => saveDestination(e)}/>
               </FormStyled>
