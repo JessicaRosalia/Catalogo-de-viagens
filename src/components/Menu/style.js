@@ -27,7 +27,7 @@ export const LinkContainer = styled.div`
 export const LinkStyled = styled(Link)`
     font-size: 25px;
     text-decoration: none;
-    color: #000;
+    color: #fff;
     justify-content: center;
 
     :hover{
