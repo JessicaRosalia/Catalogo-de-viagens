@@ -55,8 +55,16 @@ export const TextArea = styled.textarea`
     background-color: #fff;
     margin-bottom: 30px;
     color: #000;
+    
+    @media(min-width: 1440px){
+        width: 500px;
+    }
 
     &:focus {
         border: 1px solid #208DFF;
+    }
+
+    &.error {
+        border-color: red;
     }
 `;
