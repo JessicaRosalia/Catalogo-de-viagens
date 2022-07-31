@@ -29,8 +29,8 @@ export const GoDownAnimation = keyframes`
 
 
 export const WarningStyled = styled.div`
-    color: ${props => props.className === 'error' ? '#000' : 'green'};
-    background-color: #d9534f;
+    color: #FFF;
+    background-color: ${props => props.className === 'error' ? '#d9534f' : 'green'};
     display: inline-block;
     animation: ${GoDownAnimation} 0.5s both 1, ${FadeOutAnimation} 5s both 2s 1;
     padding: 5px 20px;
