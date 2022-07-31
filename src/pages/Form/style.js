@@ -21,29 +21,31 @@ export const TitleStyled = styled.h2`
 `;
 
 export const MainStyled = styled.main`
-    
+    max-width: 1080px;
+
+    @media(min-width: 1440px){
+        margin: 0 auto;
+        align-items: center;
+    }
 `;
 
 export const FormStyled = styled.form`
     display: flex;
-    margin: 0 auto;
+    /* max-width: 1080px; */
     flex-direction: column;
     /* justify-content: space-between; */
-
+    
     & > :nth-child(1){
         display: flex;
         /* justify-content: space-between; */
         /* width: 75%; */
-
+        
         div {
             margin-right: 20px;
         }
     }
-/* 
-    @media(min-width: 1440px){
-        flex-direction: row;
-        
-    } */
+    
+
 `;
 
 export const InputContainerStyled = styled.div`
@@ -57,6 +59,10 @@ export const LabelStyled = styled.div`
 export const ContainerUploadFileStyled = styled.div`
     max-width: 500px;
     width: 100%;
+
+    @media(min-width: 1440px){
+        align-self: flex-start;
+    }
 `;
 
 export const ContainerFilesStyled = styled.div`

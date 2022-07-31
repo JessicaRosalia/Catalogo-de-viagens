@@ -123,8 +123,8 @@ const Form = () => {
 
         <ContainerFormStyled>
             <Header />
-            <TitleStyled>Cadastre um destino</TitleStyled>
             <MainStyled>
+              <TitleStyled>Cadastre um destino</TitleStyled>
               <FormStyled>
                 <div>
                   <div>
