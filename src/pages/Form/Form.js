@@ -5,7 +5,7 @@ import { postDestino } from '../../services';
 import { BackgroundStyled, ContainerFormStyled, MainStyled, FormStyled, HeaderStyled, TitleStyled, ContainerUploadFileStyled, FileLabelStyled } from './style';
 import WarningDiv from '../../components/WarningDiv';
 import Footer from '../../components/Footer/Footer';
-import Menu from '../../components/Menu/Menu';
+import Header from '../../components/Header/Header';
 
 const Form = () => {
   const [destinationList, setDestinationList] = useState([]);
@@ -122,7 +122,7 @@ const Form = () => {
         )}     
 
         <ContainerFormStyled>
-            <Menu />
+            <Header />
             <TitleStyled>Cadastre um destino</TitleStyled>
             <MainStyled>
               <FormStyled>
