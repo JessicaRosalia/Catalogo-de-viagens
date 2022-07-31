@@ -121,8 +121,8 @@ const Form = () => {
             </WarningDiv>
         )}     
 
+        <Header />
         <ContainerFormStyled>
-            <Header />
             <MainStyled>
               <TitleStyled>Cadastre um destino</TitleStyled>
               <FormStyled>
