@@ -136,7 +136,7 @@ const Form = () => {
                   <div>
                     <TextInput onChangeValue={changeDestination} fieldName='continent' type="text" label="Continente" required emptyInputClass={destination.continent.inputClass} />
                     <TextInput onChangeValue={changeDestination} fieldName='summary' type="text" label="Resumo" required emptyInputClass={destination.summary.inputClass} />
-                    <TextInput onChangeValue={changeDestination} fieldName='description' type="textarea" label="Descrição complementar" required={false} placeholder="Informe aqui uma descrição a respeito do destino" emptyInputClass={destination.description.inputClass} />
+                    <TextInput onChangeValue={changeDestination} fieldName='description' type="textarea" label="Descrição complementar" required placeholder="Informe aqui uma descrição a respeito do destino" emptyInputClass={destination.description.inputClass} />
                   </div>
                 </div>
                 <ContainerUploadFileStyled>
