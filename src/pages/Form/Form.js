@@ -45,7 +45,11 @@ const Form = () => {
       }
     }
   )
-
+  
+  if(!localStorage.getItem('token')){
+    window.location.href="/login";
+  }
+  
   const changeDestination = (fieldName, fieldValue) => {
     setDestination({
       ...destination,

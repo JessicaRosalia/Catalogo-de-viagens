@@ -26,6 +26,7 @@ export const Login = () => {
             window.location.href="/cadastro-de-destinos"    
         }).catch(()=> {
             setErrorLogin("Usuário não encontrado.");
+            localStorage.setItem('token', null);
         })
     }
     
