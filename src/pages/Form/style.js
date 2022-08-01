@@ -3,7 +3,7 @@ import imagemBackground from '../../assets/images/backgroundFon.jpg'
 
 export const ContainerFormStyled = styled.div`
     background-color: #FFF;
-    padding: 40px 55px;
+    padding: 1em;
 `;
 
 export const HeaderStyled = styled.header`
