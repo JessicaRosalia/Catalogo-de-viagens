@@ -23,7 +23,7 @@ export const Login = () => {
         login(user).then((res)=> {
             const token = res.headers.authorization;
             localStorage.setItem('token', token);
-            window.location.href="/home"    
+            window.location.href="/home";  
         }).catch(()=> {
             setErrorLogin("Usuário não encontrado.");
             localStorage.setItem('token', null);

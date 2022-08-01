@@ -4,6 +4,10 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faHouse} from '@fortawesome/free-solid-svg-icons'
 function Menu (){
 
+    function logout() {
+        localStorage.clear();
+    }
+
     return(
         <NavbarStyled>
         
@@ -19,7 +23,7 @@ function Menu (){
                 </LinkContainer>
             
                 <LinkContainer>
-                        <LinkStyled to="/cadastro-de-usuario"> Cadastro de Usuário</LinkStyled>
+                        <LinkStyled to="/cadastro-de-usuario" onClick={logout}> Cadastro de Usuário</LinkStyled>
                 </LinkContainer>
            </LinksContainer>
             
