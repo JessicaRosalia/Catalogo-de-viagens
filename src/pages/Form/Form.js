@@ -113,16 +113,14 @@ const Form = () => {
     }
 
     return (
-      <>
-
-        { warningMessage.message && (
-            <WarningDiv type={warningMessage.type}>
-              {warningMessage.message}
-            </WarningDiv>
-        )}     
-
+      <>     
         <Header />
         <ContainerFormStyled>
+        { warningMessage.message && (
+                <WarningDiv type={warningMessage.type}>
+                  {warningMessage.message}
+                </WarningDiv>
+              )}
             <MainStyled>
               <TitleStyled>Cadastre um destino</TitleStyled>
               <FormStyled>
