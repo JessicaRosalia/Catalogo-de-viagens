@@ -20,6 +20,10 @@ function HomePage(){
     const [destinosPesquisados, setDestinosPesquisados] = useState([]);
     const [palavraPesquisada, setPalavraPesquisada] = useState("");
 
+    if(!localStorage.getItem('token')){
+        window.location.href="/login";
+    }
+
     async function listaDestinos() {
 
         const res = await axios.get('http://localhost:8080/cadastrar/listar/destinos');
