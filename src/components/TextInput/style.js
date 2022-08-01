@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ContainerField = styled.div`
     /* width: 330px; */
-    width: 330px;
+    width: 420px;
 
     @media(min-width: 1440px){
         width: 500px;
@@ -20,7 +20,7 @@ export const Span = styled.span`
 `;
 
 export const Input = styled.input`
-    width: 330px;
+    width: 420px;
     height: 40px;
     border: 1px solid #c4c4c4;
     border-radius: 8px;
@@ -45,7 +45,7 @@ export const Input = styled.input`
 `;
 
 export const TextArea = styled.textarea`
-    width: 330px;
+    width: 420px;
     height: 90px;
     border: 1px solid #c4c4c4;
     border-radius: 8px;
